@@ -5,7 +5,7 @@ def encode(s):
         raise TypeError
     origlen = len(s)
     crypted = ""
-    digitmapping = dict(zip('1234567890!"+#€%&/()=','!"#€%&/()=1234567890'))
+    digitmapping = dict(zip('1234567890!"#€%&/()=','!"#€%&/()=1234567890'))
     if len(s) > 1000:
         raise ValueError
     for c in s:
@@ -16,7 +16,8 @@ def encode(s):
             crypted+=codecs.encode(c,'rot13')
         elif c in digitmapping:
           crypted+=digitmapping[c]
-
+        else:
+            raise ValueError
     return crypted
 
 def decode(s):

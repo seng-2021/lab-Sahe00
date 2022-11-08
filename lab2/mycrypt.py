@@ -9,6 +9,7 @@ def encode(s):
     if len(s) > 1000:
         raise ValueError
     for c in s:
+        c = c.lower()
         if c.isalpha():
             if c.islower():
                 c=c.upper()

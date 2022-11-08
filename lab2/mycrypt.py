@@ -17,12 +17,13 @@ def encode(s):
                 # Rot13 the character for maximum security
                 crypted+=codecs.encode(c,'rot13')
                 
-        elif c in digitmapping:
-            crypted+=digitmapping[c]
+            elif c in digitmapping:
+                crypted+=digitmapping[c]
+            else:
+                raise ValueError
         else:
             raise ValueError
     return crypted
 
 def decode(s):
     return encode(s)
-

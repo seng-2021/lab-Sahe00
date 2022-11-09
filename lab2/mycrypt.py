@@ -14,7 +14,7 @@ def encode(s):
     s = s[:-1]
         
     for c in s:
-        if 0 <= ord(c) <= 127:
+        if ord(c) >= 0 and ord(c) <= 127:
             if c.isalpha():
                 if c.islower():
                     c=c.upper()

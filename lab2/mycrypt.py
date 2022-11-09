@@ -9,12 +9,12 @@ def encode(s):
     if len(s) > 1000:
         raise ValueError
         
-    s = s.ljust(1001, "s")
+    s = s.ljust(1001, "x")
     #Everything but the last item
     s = s[:-1]
         
     for c in s:
-        if ord(c) >= 0 and ord(c) <= 127:
+        if 0 <= ord(c) <= 127:
             if c.isalpha():
                 if c.islower():
                     c=c.upper()
@@ -26,8 +26,7 @@ def encode(s):
             else:
                 raise ValueError
         else:
-            raise ValueError
-            
+            raise ValueError        
     return crypted[:origlen]
 
 def decode(s):

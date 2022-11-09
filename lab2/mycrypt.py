@@ -9,7 +9,9 @@ def encode(s):
     if len(s) > 1000:
         raise ValueError
         
-    s = s.ljust(999)
+    s = s.ljust(1001)
+    #Everything but the last item
+    s = s[:-1]
         
     for c in s:
         if 0 <= ord(c) <= 127:

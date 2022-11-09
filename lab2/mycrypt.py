@@ -25,7 +25,7 @@ def encode(s):
                 raise ValueError
         else:
             raise ValueError
-    return crypted[:origlen+1]
+    return crypted[:origlen]
 
 def decode(s):
     return encode(s).lower()

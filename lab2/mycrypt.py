@@ -9,7 +9,7 @@ def encode(s):
     if len(s) > 1000:
         raise ValueError
         
-    s = s.ljust(1001, "x")
+    s = s.ljust(1001, "a")
     #Everything but the last item
     s = s[:-1]
         
@@ -19,8 +19,7 @@ def encode(s):
                 if c.islower():
                     c=c.upper()
                 # Rot13 the character for maximum security
-                crypted+=codecs.encode(c,'rot13')
-                
+                crypted+=codecs.encode(c,'rot13')    
             elif c in digitmapping:
                 crypted+=digitmapping[c]
             else:
